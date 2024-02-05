@@ -1,5 +1,5 @@
 const CONFIG = {
-  devMode: false,
+  devMode: true,
 };
 
 export default CONFIG;
