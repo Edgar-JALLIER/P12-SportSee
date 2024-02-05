@@ -1,0 +1,83 @@
+.barChart {
+  width: 100%;
+  height: 320px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.legend-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.graphique-title {
+  font-size: 15px;
+  padding-left: 25px;
+}
+
+.legend-liste {
+  list-style-type: none;
+  display: flex;
+}
+
+.legend-graphique {
+  padding-right: 40px;
+  position: relative;
+  color: #74798c;
+  font-size: 14px;
+  font-weight: 500;
+  &-calories::before {
+    content: "";
+    aspect-ratio: 1/1;
+    background-color: red;
+    position: absolute;
+    font-weight: bold;
+    height: 10px;
+    left: -20px;
+    bottom: 20%;
+    border-radius: 100px;
+  }
+  &-poids::before {
+    content: "";
+    aspect-ratio: 1/1;
+    background-color: black;
+    position: absolute;
+    font-weight: bold;
+    height: 10px;
+    left: -20px;
+    bottom: 20%;
+    border-radius: 100px;
+  }
+}
+
+.graphique-barChart {
+  width: 100%;
+  height: 80%;
+}
+
+.custom-tooltip-daily-activity {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  & p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .legend-liste {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 6px 0;
+  }
+  .graphique-title {
+    font-size: 15px;
+    padding-left: 10px;
+  }
+  .legend-graphique {
+    padding-right: 10px;
+  }
+}

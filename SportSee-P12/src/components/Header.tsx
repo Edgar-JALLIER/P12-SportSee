@@ -4,11 +4,14 @@ import "../style/Header.scss";
 const Header = () => {
   return (
     <header>
-      <img src={SportSee} alt="logo" />
+      <a href="/">
+        <img src={SportSee} alt="logo" />
+      </a>
+
       <nav>
         <ul>
           <li>
-            <a href="#">Accueil</a>
+            <a href="/">Accueil</a>
           </li>
           <li>
             <a href="#">Profil</a>

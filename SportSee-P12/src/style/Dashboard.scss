@@ -1,9 +1,47 @@
-.container {
+.main-charts {
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 30px auto;
+}
+
+.container {
+  &__sidebar {
+    display: flex;
+  }
+  &__allInfos {
+    width: 90%;
+  }
+  &__global {
+    column-gap: 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__charts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  &__smallCharts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 20px;
+    justify-content: space-between;
+    row-gap: 30px;
+    margin-top: 30px;
+  }
+  &__data-cards {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    justify-content: space-between;
+  }
 }
 
 .greetings-div {
-  margin: 40px 60px;
+  margin: 40px 0;
 }
 
 .greetings-title {
@@ -16,4 +54,32 @@ main p {
 }
 .red-text {
   color: #ff0101;
+}
+
+@media screen and (max-width: 1539px) {
+  .container {
+    &__global {
+      column-gap: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &__data-cards {
+      margin-bottom: 30px;
+      row-gap: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .container {
+    &__smallCharts {
+      flex-wrap: wrap;
+      align-items: center;
+      column-gap: 20px;
+      justify-content: center;
+      row-gap: 30px;
+      margin-bottom: 30px;
+    }
+  }
 }

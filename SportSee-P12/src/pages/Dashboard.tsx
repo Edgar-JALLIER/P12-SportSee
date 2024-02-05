@@ -2,23 +2,14 @@ import FetchUserData from "../data/FetchUserData";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
+import DailyActivity from "../components/DailyActivity";
+import SessionActivity from "../components/SessionsActivity";
+import { badResultUI } from "../helper/loadingViewData";
+import KeyDataCard from "../components/KeyDataCard";
+import { UserData } from "../interfaces/userData";
+import RadarChartSession from "../components/RadarChart";
 import "../style/Dashboard.scss";
-
-interface UserData {
-  id: number;
-  userInfos: {
-    firstName: string;
-    lastName: string;
-    age: number;
-  };
-  todayScore: number;
-  keyData: {
-    calorieCount: number;
-    proteinCount: number;
-    carbohydrateCount: number;
-    lipidCount: number;
-  };
-}
+import RadialChart from "../components/RadialBarChart";
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -26,32 +17,44 @@ const Dashboard = () => {
     return;
   }
   const numberId = parseInt(id);
-  const { userData, loading, error } = FetchUserData(numberId);
-  console.log("test", id);
+  const { userData, loading, error } = FetchUserData<UserData>(numberId, "");
 
-  if (loading) {
-    return <div>Chargement...</div>;
-  }
+  const errorResult = badResultUI(userData, loading, error);
+  if (errorResult) return errorResult;
 
-  if (error) {
-    return <div>Une erreur s'est produite : {error.message}</div>;
-  }
-  if (!userData) {
-    return <div>Données utilisateur non disponibles</div>;
-  }
+  const scoreUserData = !userData?.todayScore
+    ? userData?.score
+    : userData?.todayScore;
 
   return (
     <>
       <Header />
-      <div className="container">
+      <div className="container__sidebar">
         <SideBar />
-        <main>
-          <div className="greetings-div">
-            <h3 className="greetings-title">
-              Bonjour{" "}
-              <span className="red-text">{userData.userInfos.firstName}</span>
-            </h3>
-            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        <main className="main-charts">
+          <div className="container__allInfos">
+            <div className="greetings-div">
+              <h3 className="greetings-title">
+                Bonjour{" "}
+                <span className="red-text">
+                  {userData?.userInfos.firstName}
+                </span>
+              </h3>
+              <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            </div>
+            <section className="container__global">
+              <section className="container__charts">
+                <DailyActivity />
+                <div className="container__smallCharts">
+                  <SessionActivity />
+                  <RadarChartSession />
+                  <RadialChart score={scoreUserData} />
+                </div>
+              </section>
+              <section className="container__data-cards">
+                {userData && <KeyDataCard keyData={userData.keyData} />}
+              </section>
+            </section>
           </div>
         </main>
       </div>

@@ -1,4 +1,4 @@
-aside {
+.side-bar {
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -7,7 +7,6 @@ aside {
   color: white;
   padding: 20px 0;
   width: 117px;
-  height: 85vh;
 }
 
 .icon-nav {
@@ -19,6 +18,8 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  list-style-type: none;
+  padding: 0;
 }
 
 .icon-bg {
@@ -31,9 +32,15 @@ aside {
   border-radius: 6px;
   margin: 10px 0;
 }
-aside p {
+.side-bar p {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   white-space: nowrap;
   font-size: 12px;
+}
+
+@media screen and (max-width: 800px) {
+  .side-bar {
+    display: none;
+  }
 }

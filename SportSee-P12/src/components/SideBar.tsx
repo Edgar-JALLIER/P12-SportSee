@@ -6,7 +6,7 @@ import "../style/SideBar.scss";
 
 const SideBar = () => {
   return (
-    <aside>
+    <aside className="side-bar">
       <nav className="icon-nav">
         <ul className="icon-ul">
           <li>

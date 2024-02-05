@@ -1,0 +1,26 @@
+.session-chart {
+  position: relative;
+  height: 260px;
+  min-width: 300px;
+  background: #f00;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.session-description {
+  position: absolute;
+  margin: 20px 0 0 20px;
+  color: white;
+  opacity: 0.8;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.custom-tooltip-session {
+  padding: 10px;
+  & p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}

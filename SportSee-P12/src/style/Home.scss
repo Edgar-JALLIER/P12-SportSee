@@ -1,4 +1,50 @@
-ul {
+.entry-page {
+  height: 100vh;
+  background-color: black;
+}
+
+.welcome {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  & img {
+    width: 80%;
+    max-width: 500px;
+  }
+  & p {
+    font-size: 30px;
+  }
+  & a {
+    color: white;
+    display: block;
+    width: 100%;
+  }
+  & ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
     padding: 0;
+
+    & li {
+      border: 1px white solid;
+      border-radius: 5px;
+      padding: 10px;
+      min-width: 200px;
+      text-align: center;
+      &:hover {
+        color: black;
+        background-color: white;
+        a {
+          color: black;
+        }
+      }
+    }
+  }
 }
