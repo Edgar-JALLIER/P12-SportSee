@@ -3,13 +3,12 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
 
 import { useParams } from "react-router-dom";
 import { badResultUI } from "../helper/loadingViewData";
-import { ExerciseData, ExerciseItem } from "../interfaces/userData";
+import { ExerciseData } from "../interfaces/userData";
 import FetchUserData from "../data/FetchUserData";
 import "../style/RadarChartSession.scss";
 

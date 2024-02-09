@@ -2,6 +2,7 @@
   position: relative;
   height: 260px;
   min-width: 300px;
+  width: 300px;
   background: #f00;
   border-radius: 5px;
   padding: 10px;
@@ -22,5 +23,11 @@
     margin: 0;
     font-weight: 500;
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1235px) {
+  .session-chart {
+    width: 100%;
   }
 }
