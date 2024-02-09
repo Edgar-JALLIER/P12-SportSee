@@ -1,4 +1,3 @@
-import App from "../components/App";
 import { Link } from "react-router-dom";
 import SportSee from "../assets/sportsee-logo.png";
 import "../style/Home.scss";

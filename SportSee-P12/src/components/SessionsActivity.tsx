@@ -18,6 +18,12 @@ import {
 } from "recharts/types/component/DefaultTooltipContent";
 import "../style/SessionActivity.scss";
 
+interface CustomizedCursorProps {
+  points: Array<{ x: number; y: number }>;
+  width?: number;
+  height?: number;
+}
+
 const CustomTooltip = ({
   active,
   payload,
@@ -32,11 +38,11 @@ const CustomTooltip = ({
   }
   return null;
 };
-const CustomizedCursor = (props) => {
+const CustomizedCursor = (props: CustomizedCursorProps) => {
   const pointX = props.points[0].x;
   const pointY = props.points[0].y;
   const widthRectangle = props.width;
-  const heightRectangle = props.height + 100;
+  const heightRectangle = props.height ? props.height + 100 : props.height;
   return (
     <Rectangle
       x={pointX}

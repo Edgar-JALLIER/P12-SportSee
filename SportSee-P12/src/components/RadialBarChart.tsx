@@ -1,9 +1,4 @@
-import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 import { UserData } from "../interfaces/userData";
 import "../style/RadialBarChart.scss";
 
@@ -13,7 +8,6 @@ interface ScoreData {
 }
 
 const RadialChart = (data: ScoreData) => {
-  console.log("data", data);
   const checkData = data.score
     ? { score: data.score * 100 }
     : { todayScore: data.todayScore! * 100 };
