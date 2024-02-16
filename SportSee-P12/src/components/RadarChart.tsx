@@ -11,6 +11,7 @@ import { badResultUI } from "../helper/loadingViewData";
 import { ExerciseData } from "../interfaces/userData";
 import FetchUserData from "../data/FetchUserData";
 import "../style/RadarChartSession.scss";
+import { transformData } from "../helper/transformData";
 
 const RadarChartSession = () => {
   const { id } = useParams();
@@ -24,17 +25,7 @@ const RadarChartSession = () => {
   );
   const errorResult = badResultUI(userData, loading, error);
   if (errorResult) return errorResult;
-  function transformData(originalData: ExerciseData | undefined) {
-    const transformedData = originalData?.data.map((item) => ({
-      subject:
-        originalData.kind[item.kind][0].toUpperCase() +
-        originalData.kind[item.kind].slice(1),
-      key: item.value,
-      fullMark: 250,
-    }));
 
-    return transformedData;
-  }
   const newData = transformData(userData);
   return (
     <div className="radar-chart">

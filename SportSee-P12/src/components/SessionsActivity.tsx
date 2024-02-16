@@ -17,9 +17,10 @@ import {
   NameType,
 } from "recharts/types/component/DefaultTooltipContent";
 import "../style/SessionActivity.scss";
+import { dayOfWeek } from "../helper/transformData";
 
 interface CustomizedCursorProps {
-  points: Array<{ x: number; y: number }>;
+  points?: Array<{ x: number; y: number }>;
   width?: number;
   height?: number;
 }
@@ -39,8 +40,8 @@ const CustomTooltip = ({
   return null;
 };
 const CustomizedCursor = (props: CustomizedCursorProps) => {
-  const pointX = props.points[0].x;
-  const pointY = props.points[0].y;
+  const pointX = props.points![0].x;
+  const pointY = props.points![0].y;
   const widthRectangle = props.width;
   const heightRectangle = props.height ? props.height + 100 : props.height;
   return (
@@ -66,16 +67,9 @@ const SessionActivity = () => {
   );
   const errorResult = badResultUI(userData, loading, error);
   if (errorResult) return errorResult;
+
   const data = userData?.sessions;
-  const dayOfWeek: { [key: number]: string } = {
-    1: "L",
-    2: "M",
-    3: "M",
-    4: "J",
-    5: "V",
-    6: "S",
-    7: "D",
-  };
+
   const maxAxisHeight = 100;
   return (
     <div className="session-chart">
