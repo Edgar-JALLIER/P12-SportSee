@@ -15,13 +15,13 @@ const Header = () => {
             <Link to="/">Accueil</Link>
           </li>
           <li>
-            <Link to="/profile">Profil</Link>
+            <Link to="/#">Profil</Link>
           </li>
           <li>
-            <Link to="/settings">Réglage</Link>
+            <Link to="/#">Réglage</Link>
           </li>
           <li>
-            <Link to="/community">Communauté</Link>
+            <Link to="/#">Communauté</Link>
           </li>
         </ul>
       </nav>
