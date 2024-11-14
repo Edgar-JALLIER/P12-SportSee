@@ -18,7 +18,7 @@ const KeyDataCard = ({ keyData }: KeyDataCardProps) => {
       {Object.keys(keyData).map((key) => (
         <div key={key} className="data-card">
           <img
-            src={`../src/assets/${key}.png`}
+            src={`/P12-SportSee/assets/${key}.png`}
             alt=""
             className="data-card__logo"
           />
