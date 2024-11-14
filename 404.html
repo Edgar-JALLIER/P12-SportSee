@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>404 - Page Not Found</title>
     <script>
-      // Ce script redirige vers index.html en conservant l'URL après le domaine
-      var path = window.location.pathname;
-      if (path !== "/") {
-        window.location.replace(path); // Redirige sans ajouter index.html à l'URL
+      // Cette condition permet de rediriger uniquement si l'URL n'est pas déjà la page d'index
+      let currentPath = window.location.pathname;
+      if (currentPath !== "/") {
+        window.location.replace("/P12-SportSee" + currentPath); // Remplacez "/P12-SportSee" par votre propre sous-dossier si nécessaire
       }
     </script>
   </head>
