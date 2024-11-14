@@ -1,26 +1,27 @@
+import { Link } from "react-router-dom";
 import SportSee from "../assets/sportsee-logo.png";
 import "../style/Header.scss";
 
 const Header = () => {
   return (
     <header>
-      <a href="/">
+      <Link to="/">
         <img src={SportSee} alt="logo" />
-      </a>
+      </Link>
 
       <nav>
         <ul>
           <li>
-            <a href="/">Accueil</a>
+            <Link to="/">Accueil</Link>
           </li>
           <li>
-            <a href="#">Profil</a>
+            <Link to="/profile">Profil</Link>
           </li>
           <li>
-            <a href="#">Réglage</a>
+            <Link to="/settings">Réglage</Link>
           </li>
           <li>
-            <a href="#">Communauté</a>
+            <Link to="/community">Communauté</Link>
           </li>
         </ul>
       </nav>
